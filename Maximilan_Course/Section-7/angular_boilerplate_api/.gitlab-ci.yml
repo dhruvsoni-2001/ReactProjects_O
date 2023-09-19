@@ -1,0 +1,38 @@
+image: microsoft/dotnet:latest
+stages:
+  - Build-Dev
+  - Deploy-Dev
+
+build Dotnet-dev:
+  stage: Build-Dev
+  script:
+    - rm -rf publishbuild
+    - mkdir publishbuild
+    - dotnet restore
+    - dotnet-sonarscanner begin -k:"Angular_boilerplate_API" -d:sonar.host.url="http://sonar-ubuntu.webline.local:9000" -d:sonar.login="ad8166b0caca49b0331688fa718e82082295cbca" 
+    - dotnet build 
+    - dotnet-sonarscanner end -d:sonar.login="ad8166b0caca49b0331688fa718e82082295cbca"
+    #- dotnet build --no-restore
+    - dotnet publish /d/Gitlab-Runner/builds/sQeaVQWM/0/angular_js/angular_boilerplate_api/BoilerPlate.sln -c Release -o /d/Gitlab-Runner/builds/sQeaVQWM/0/angular_js/angular_boilerplate_api/publishbuild
+    - cd publishbuild/
+    - 7z a -tzip publishbuild.zip *
+  artifacts:
+    paths:
+      - /d/Gitlab-Runner/builds/sQeaVQWM/0/angular_js/angular_boilerplate_api/publishbuild/publishbuild.zip
+  tags:
+    - DOTNET_DEV    
+  only:
+    - develop
+
+build Dev-Deploy:
+  stage: Deploy-Dev
+  when: manual
+  script:
+    - echo y | plink -pw 'lsr@2018' lokendrasr@192.168.101.106 "cd c:/inetpub/wwwroot/Angular-Boilerplate-API && del -rf ."
+    - echo y | pscp -r -scp -pw 'lsr@2018' /d/Gitlab-Runner/builds/sQeaVQWM/0/angular_js/angular_boilerplate_api/publishbuild/*.zip lokendrasr@192.168.101.106:/inetpub/wwwroot/Angular-Boilerplate-API 
+    - echo y | plink -pw 'lsr@2018' lokendrasr@192.168.101.106 "cd c:/inetpub/wwwroot/Angular-Boilerplate-API && 7z e publishbuild.zip"  
+  tags:
+    - DOTNET_DEV
+  only:
+    - develop
+

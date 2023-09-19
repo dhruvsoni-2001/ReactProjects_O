@@ -1,0 +1,31 @@
+## The complete Guid 2023 (maximilian course).
+
+        =>diffrece between react and vanila js 
+            - https://codesandbox.io/s/react-vs-vanilla-demo-uc08fv?file=/src/App.js
+            - https://codesandbox.io/s/vanilla-js-demo-6049kj?file=/index.js
+            
+            - https://codesandbox.io/s/first-react-app-zj5cx1   // working on react.
+
+        => what you will see is in the course:
+            - components & jsx, Props, State & Events, Outputting content, Styling, Hooks, Debuging etc...
+            - https://github.com/academind/react-complete-guide-code
+
+            Also will see advance topics like :
+            - Refs & Portals, Side Effects, Advanced Hooks, Custome Hooks, behind the scenes, context API, Redux, Routing, Http Request, Authentication, Unit Testing, Next js etc...
+
+            - Discord: https://academind.com/community/
+
+        => Data: Every thing contaiins data it can be anthing and to view that data json will be the best way to store that data.
+
+        => Working with components more presically with functional components.
+
+================================================================
+        => state what it is in react.
+================================================================
+        => Style in react.
+            install styled componnents and with that we can create a style. A new style name is created it is named [Attacked Template litral.] Syntex of it will be like this.[styled.button``]
+
+======================================================================
+    => In section 9 of the this course we are making our components like header resultstable and userinputs diffrently also don't forget to put the return in (). i will also adding comments inthe code for future refrences.
+    
+    =>
