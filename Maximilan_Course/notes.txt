@@ -27,5 +27,11 @@
 
 ======================================================================
     => In section 9 of the this course we are making our components like header resultstable and userinputs diffrently also don't forget to put the return in (). i will also adding comments inthe code for future refrences.
-    
-    =>
+================================================================    
+    =>in section 10 we will make our components in div but if we use so muc h of div it will become '<div> soup'
+
+    => learn about fragments and wrapper using props.children.
+
+    => Portals are done in ErrorModal.js where we are using the protal.
+    => Refs are done  in 
+================================================================
